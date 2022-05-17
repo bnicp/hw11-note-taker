@@ -19,7 +19,7 @@ router.post('/notes', (req, res) => {
     res.json(newNote);
 });
 
-router.delete('/notes:id', (req, res) => {
+router.delete('/notes/:id', (req, res) => {
     readAndDelete(req.params.id, './db/db.json');
     res.json({ ok: true });
 })
