@@ -1,6 +1,6 @@
 const express = require('express');
 const htmlRoutes = require('./routes/htmlRoutes');
-const apiRoutes = require('./routes/apiroutes');
+const apiRoutes = require('./routes/apiRoutes');
 
 //Initialize the app and create a port
 const app = express();
@@ -12,11 +12,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 // API routes - load before HTML routes -- those catch everything else
-app.post('/api', (req, res) => {
-    res.json('post');
-});
+// app.post('/api', (req, res) => {
+//     res.json('post');
+// });
 
-app.use('/', apiRoutes);
+app.use('/api', apiRoutes);
 
 // HTML routes
 app.use('/', htmlRoutes);

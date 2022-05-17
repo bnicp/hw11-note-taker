@@ -41,6 +41,7 @@ const readAndDelete = (id, file) => {
             return note.id !== id;
         })
         writeToFile(file, filteredData);
+        return filteredData;
       }
     });
   };

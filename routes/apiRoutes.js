@@ -1,3 +1,4 @@
+const path = require('path');
 const router = require('express').Router();
 const { v4: uuidv4 } = require('uuid');
 const {
@@ -14,7 +15,6 @@ router.get('/notes', (req, res) => {
 router.post('/notes', (req, res) => {
     const newNote = req.body;
     newNote.id = uuidv4();
-
     readAndAppend(newNote, './db/db.json');
     res.json(newNote);
 });
